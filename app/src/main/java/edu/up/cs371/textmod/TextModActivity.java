@@ -16,17 +16,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+
+    private EditText editText;
+    private Button reverseButton;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -37,6 +42,12 @@ public class TextModActivity extends ActionBarActivity {
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
+
+        editText = (EditText)findViewById(R.id.editText);
+
+        reverseButton = (Button)findViewById(R.id.button4);
+        reverseButton.setOnClickListener(this);
+
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -128,4 +139,13 @@ public class TextModActivity extends ActionBarActivity {
             // your code here
         }
     }
+
+    public void onClick(View v){
+        if(v.getId() == R.id.button4) {
+            String myString = editText.getText().toString();
+            String reverse = new StringBuffer(myString).reverse().toString();
+            editText.setText(reverse);
+        }
+    }
+
 }
