@@ -23,17 +23,28 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     private Button clear;
-    private EditText editText;
     private Button lowerButton;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+
+    //Justin's changes
+    private EditText textField;
+    private Button copyName;
+    private Spinner spinner;
+    private int spinnerPos;
+    String[] spinnerNames;
+
+    private EditText editText;
+    private Button reverseButton;
+
+    private Button makeCap;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -48,6 +59,11 @@ public class TextModActivity extends ActionBarActivity {
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
 
+        reverseButton = (Button)findViewById(R.id.button4);
+        reverseButton.setOnClickListener(this);
+
+        makeCap = (Button)findViewById(R.id.button6);
+        makeCap.setOnClickListener(this);
 
         // Set up the spinner so that it shows the names in the spinner array resources
         //
@@ -113,16 +129,20 @@ public class TextModActivity extends ActionBarActivity {
             lower = lower.toLowerCase();
             editText.setText(lower);
         }
-    }
-    public void onClick(View v)    {
-        if(v.getId()== R.id.button6)
+        if(view.getId()== R.id.button6)
         {
             String temp = editText.getText().toString().toUpperCase();
             editText.setText(temp);
 
         }
+        if(view.getId() == R.id.button4) {
+            String myString = editText.getText().toString();
+            String reverse = new StringBuffer(myString).reverse().toString();
+            editText.setText(reverse);
+        }
 
     }
+
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
      */
@@ -179,12 +199,5 @@ public class TextModActivity extends ActionBarActivity {
         }
     }
 
-    public void onClick(View v){
-        if(v.getId() == R.id.button4) {
-            String myString = editText.getText().toString();
-            String reverse = new StringBuffer(myString).reverse().toString();
-            editText.setText(reverse);
-        }
-    }
 
 }
