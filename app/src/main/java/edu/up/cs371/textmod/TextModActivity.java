@@ -204,5 +204,4 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             editText.setText(reverse);
         }
     }
-
 }
