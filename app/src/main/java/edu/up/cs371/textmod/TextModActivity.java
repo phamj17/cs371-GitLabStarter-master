@@ -5,6 +5,7 @@ package edu.up.cs371.textmod;
  *
  * Allow text to be modified in simple ways with button-presses.
  */
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +35,13 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
+    //Justin's changes
+    private EditText textField;
+    private Button copyName;
+    private Spinner spinner;
+    private int spinnerPos;
+    String[] spinnerNames;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -51,15 +59,26 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
-        String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
+        spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, spinnerNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // bind the spinner and adapter
         spinner.setAdapter(adapter);
+
+        //Justin's changes
+        textField = (EditText)findViewById(R.id.editText);
+        copyName = (Button)findViewById(R.id.button2);
+        copyName.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                   public void onClick(View v) {
+                                           String temp = textField.getText() + spinnerNames[spinnerPos];
+                                           textField.setText(temp);
+                                       }
+                                    });
 
         // load the images from the resources
         //
@@ -145,6 +164,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
+            spinnerPos = spinner.getSelectedItemPosition();
         }
 
         /**
