@@ -16,14 +16,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
+
+    private Button clear;
+    private EditText editText;
+    private Button lowerButton;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
@@ -40,6 +46,7 @@ public class TextModActivity extends ActionBarActivity {
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
+
 
         // Set up the spinner so that it shows the names in the spinner array resources
         //
@@ -73,6 +80,27 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+
+        clear = (Button) findViewById(R.id.button);
+        editText = (EditText) findViewById(R.id.editText);
+        lowerButton = (Button) findViewById(R.id.button7);
+
+        clear.setOnClickListener(this);
+        lowerButton.setOnClickListener(this);
+
+
+    }
+
+    public void onClick(View view){
+        if(view.getId() == R.id.button){
+            editText.setText("");
+        }
+        if(view.getId() == R.id.button7){
+            //lowercase
+            String lower = editText.getText().toString();
+            lower = lower.toLowerCase();
+            editText.setText(lower);
+        }
     }
 
     /**
