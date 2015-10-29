@@ -30,8 +30,9 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private ArrayList<Bitmap> images;
 
     private Button clear;
-    private EditText editText;
+    //private EditText editText;
     private Button lowerButton;
+    private Button reverseButton;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
@@ -54,6 +55,9 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
+
+        reverseButton = (Button)findViewById(R.id.button4);
+        reverseButton.setOnClickListener(this);
         editText = (EditText)findViewById(R.id.editText);
         makeCap = (Button)findViewById(R.id.button6);
         makeCap.setOnClickListener(this);
@@ -131,6 +135,11 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             editText.setText(temp);
 
         }
+        if(view.getId() == R.id.button4) {
+            String myString = editText.getText().toString();
+            String reverse = new StringBuffer(myString).reverse().toString();
+            editText.setText(reverse);
+        }
     }
 /*    public void onClick(View v)    {
         if(v.getId()== R.id.button6)
@@ -194,14 +203,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         @Override
         public void onNothingSelected(AdapterView<?> parentView) {
             // your code here
-        }
-    }
-
-    public void onClick(View v){
-        if(v.getId() == R.id.button4) {
-            String myString = editText.getText().toString();
-            String reverse = new StringBuffer(myString).reverse().toString();
-            editText.setText(reverse);
         }
     }
 
