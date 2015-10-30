@@ -30,6 +30,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
+    private String m;
     private Button clear;
     //private EditText editText;
     private Button lowerButton;
