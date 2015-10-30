@@ -11,6 +11,8 @@
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/jasonsface</item>
         <item>@mipmap/idiot_sandwich</item>
+        <item>@mipmap/timsface</item>
+        <item>@mipmap/ian</item>
     </array>
 
     <string-array name="spinner_names">
@@ -19,6 +21,8 @@
         <item>Dr. Steven Vegdahl</item>
         <item>Jason Althouse</item>
         <item>Justin Pham</item>
+        <item>Tim MacNary</item>
+        <item>Ian Bingham</item>
     </string-array>
 
 </resources>
