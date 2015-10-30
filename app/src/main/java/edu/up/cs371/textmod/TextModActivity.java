@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
+//ka;sjbdasjkd
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
 
