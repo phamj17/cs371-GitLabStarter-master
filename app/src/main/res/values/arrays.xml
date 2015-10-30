@@ -10,7 +10,7 @@
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/jasonsface</item>
-        <item>@mipmap/timsface</item>
+        <item>@mipmap/idiot_sandwich</item>
     </array>
 
     <string-array name="spinner_names">
@@ -18,7 +18,7 @@
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
         <item>Jason Althouse</item>
-        <item>Tim MacNary</item>
+        <item>Justin Pham</item>
     </string-array>
 
 </resources>
