@@ -23,14 +23,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-//ka;sjbdasjkd
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
-    private String m;
     private Button clear;
     //private EditText editText;
     private Button lowerButton;
