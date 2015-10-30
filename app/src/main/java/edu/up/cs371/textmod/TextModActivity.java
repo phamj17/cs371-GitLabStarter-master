@@ -55,7 +55,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
-
         reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(this);
         editText = (EditText)findViewById(R.id.editText);
@@ -129,24 +128,18 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             lower = lower.toLowerCase();
             editText.setText(lower);
         }
+
         if(view.getId()== R.id.button6)
         {
             String temp = editText.getText().toString().toUpperCase();
             editText.setText(temp);
 
         }
-        if(view.getId() == R.id.button4) {
+        if(view.getId() == R.id.button4)
+        {
             String myString = editText.getText().toString();
             String reverse = new StringBuffer(myString).reverse().toString();
             editText.setText(reverse);
-        }
-    }
-/*    public void onClick(View v)    {
-        if(v.getId()== R.id.button6)
-        {
-            String temp = editText.getText().toString().toUpperCase();
-            editText.setText(temp);
-
         }
 
     }
@@ -205,5 +198,4 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             // your code here
         }
     }
-
 }
