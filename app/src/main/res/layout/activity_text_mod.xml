@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff6bffee"
+    android:background="@color/background_color"
     tools:context=".TextModActivity">
 
 
@@ -59,11 +59,6 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <Space
-            android:layout_width="0sp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"  />
 
         <Button
             android:layout_width="wrap_content"
@@ -141,6 +136,7 @@
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1"  />
+
     </LinearLayout>
 
     <Space
@@ -153,6 +149,22 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Space
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="append"
+            android:id="@+id/randomButton"
+            android:textSize="@dimen/button_font_size"
+            android:textColor="@color/button_text_color"
+            android:background="@color/button_color"
+            android:clickable="true"
+            android:singleLine="false" />
 
         <Space
             android:layout_width="0sp"
