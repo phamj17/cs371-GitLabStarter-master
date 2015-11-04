@@ -46,6 +46,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private int spinnerPos;
     String[] spinnerNames;
 
+    private Button removePunctuation;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -115,6 +117,9 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         clear.setOnClickListener(this);
         lowerButton.setOnClickListener(this);
 
+        removePunctuation = (Button)findViewById(R.id.removePunctuation);
+        removePunctuation.setOnClickListener(this);
+
 
     }
 
@@ -140,6 +145,12 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             String myString = editText.getText().toString();
             String reverse = new StringBuffer(myString).reverse().toString();
             editText.setText(reverse);
+        }
+        if(view.getId() == R.id.removePunctuation)
+        {
+            String input = editText.getText().toString();
+            String temp = input.replaceAll("[^a-zA-Z\\s]", " ");
+            editText.setText(temp);
         }
 
     }
