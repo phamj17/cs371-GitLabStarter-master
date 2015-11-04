@@ -76,6 +76,21 @@
             android:layout_weight="1" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Rand Char"
+            android:id="@+id/random_char"
+            android:background="#ff0202bb"
+            android:textColor="#ffffee45"
+            android:textSize="@dimen/button_font_size" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/upper_button_text"

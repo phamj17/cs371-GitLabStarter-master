@@ -36,6 +36,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button lowerButton;
     private Button reverseButton;
 
+    private Button randChar;
+
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
@@ -97,6 +99,18 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                                            textField.setText(temp);
                                        }
                                     });
+
+        randChar = (Button)findViewById(R.id.random_char);
+        randChar.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            Random alphabet = new Random();
+                            String temp = textField.getText() + "";
+                            int randCharInt = alphabet.nextInt(127);
+                            char randCharString = (char) (randCharInt + 'a');
+                            int randPos = alphabet.nextInt(temp.length());
+                            textField.setText(temp.substring(0,randPos) + randCharString + temp.substring(randPos,temp.length()));
+                        }
+                });
 
         // load the images from the resources
         //
