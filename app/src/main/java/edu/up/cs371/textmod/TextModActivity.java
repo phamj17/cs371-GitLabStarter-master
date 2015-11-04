@@ -31,6 +31,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private ArrayList<Bitmap> images;
 
     private Button clear;
+    private Button deleteSpaces;
     //private EditText editText;
     private Button lowerButton;
     private Button reverseButton;
@@ -67,6 +68,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(this);
+        deleteSpaces = (Button)findViewById(R.id.deleteSpaces);
+        deleteSpaces.setOnClickListener(this);
         editText = (EditText)findViewById(R.id.editText);
         makeCap = (Button)findViewById(R.id.button6);
         makeCap.setOnClickListener(this);
@@ -145,6 +148,12 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         if(view.getId() == R.id.button){
             editText.setText("");
+        }
+        if(view.getId() == R.id.deleteSpaces)
+        {
+            String spaces = editText.getText().toString();
+            spaces = spaces.replaceAll("\\s","");
+            editText.setText(spaces);
         }
         if(view.getId() == R.id.button7){
             //lowercase
