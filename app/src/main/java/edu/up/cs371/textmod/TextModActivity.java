@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 //this is the TextModActivity class
@@ -46,6 +47,9 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private int spinnerPos;
     String[] spinnerNames;
 
+    private Button deleteSpaces;
+    private Button randomButton;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -55,6 +59,12 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
+
+
+        randomButton = (Button) findViewById(R.id.randomButton);
+        randomButton.setOnClickListener(this);
+
+
         reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(this);
         editText = (EditText)findViewById(R.id.editText);
@@ -119,6 +129,20 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     }
 
     public void onClick(View view){
+        if(view.getId() == R.id.randomButton){
+            String random = editText.getText().toString();
+            int length = random.length();
+
+
+            Random cool = new Random();
+            int random2 = 1 + cool.nextInt(length - 1);
+            String firsthalf = random.substring(0, random2);
+            String secondhalf = random.substring(random2, length);
+
+            editText.setText(secondhalf + firsthalf);
+        }
+
+
         if(view.getId() == R.id.button){
             editText.setText("");
         }
