@@ -2,7 +2,7 @@ package edu.up.cs371.textmod;
 
 /**
  * class TextModActivity
- *
+ * another comment
  * Allow text to be modified in simple ways with button-presses.
  */
 import android.content.DialogInterface;
