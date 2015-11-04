@@ -2,7 +2,7 @@ package edu.up.cs371.textmod;
 
 /**
  * class TextModActivity
- *
+ * another comment
  * Allow text to be modified in simple ways with button-presses.
  */
 import android.content.DialogInterface;
@@ -26,11 +26,12 @@ import java.util.Random;
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 //this is the TextModActivity class
-
+//Jay's tag
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     private Button clear;
+    private Button deleteSpaces;
     //private EditText editText;
     private Button lowerButton;
     private Button reverseButton;
@@ -49,6 +50,9 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private int spinnerPos;
     String[] spinnerNames;
 
+    private Button deleteSpaces;
+    private Button randomButton;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -58,8 +62,16 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
+
+
+        randomButton = (Button) findViewById(R.id.randomButton);
+        randomButton.setOnClickListener(this);
+
+
         reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(this);
+        deleteSpaces = (Button)findViewById(R.id.deleteSpaces);
+        deleteSpaces.setOnClickListener(this);
         editText = (EditText)findViewById(R.id.editText);
         makeCap = (Button)findViewById(R.id.button6);
         makeCap.setOnClickListener(this);
@@ -134,8 +146,28 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     }
 
     public void onClick(View view){
+        if(view.getId() == R.id.randomButton){
+            String random = editText.getText().toString();
+            int length = random.length();
+
+
+            Random cool = new Random();
+            int random2 = 1 + cool.nextInt(length - 1);
+            String firsthalf = random.substring(0, random2);
+            String secondhalf = random.substring(random2, length);
+
+            editText.setText(secondhalf + firsthalf);
+        }
+
+
         if(view.getId() == R.id.button){
             editText.setText("");
+        }
+        if(view.getId() == R.id.deleteSpaces)
+        {
+            String spaces = editText.getText().toString();
+            spaces = spaces.replaceAll("\\s","");
+            editText.setText(spaces);
         }
         if(view.getId() == R.id.button7){
             //lowercase
